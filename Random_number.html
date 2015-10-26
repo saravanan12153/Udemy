@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-type" content="text/html" charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title></title>
+</head>
+<body>
+
+
+    <label for="fingers">How many fingers am I holding up?</label><input id="fingers"/>
+
+    <button id="myButton">Submit</button>
+
+
+
+    <script type="text/javascript">
+
+        document.getElementById('myButton').onclick=function() {
+
+             var x=Math.random();
+                x *= 6;
+                x=Math.floor(x);
+
+                if (x==document.getElementById('fingers').value) {
+                    alert('Correct')
+                } else {
+                    alert('Sorry, that\'s wrong.  I had '+x+ ' fingers.')
+                }
+        }
+
+    </script>
+</body>
+</html>
