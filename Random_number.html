@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-type" content="text/html" charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Javascript chapter of WebDev Course</title>
+    
+    <style>
+    
+    	#circle {
+    		width: 200px;
+    		height: 200px;
+    		border-radius: 100px;
+    		background-color: red;
+    	}
+    </style>
+    
+</head>
+<body>
+
+
+    <label for="fingers">How many fingers am I holding up?</label><input id="fingers"/>
+
+    <button id="myButton">Submit</button>
+
+	<br />
+	
+	<div id='addfunc'></div>
+	
+	<br />
+    
+    <hr>
+    
+    <label for='number'>How many fingers are you holding up?</label>
+    
+    <input id='number' />
+    
+    <button id='guess'>Guess</button>
+
+    <br /><br />
+    <hr>
+    
+    <p id="arrayDisplay"></p>
+
+	<br />
+    
+    <hr>
+    
+    <button id='textChanger'>Change first div text</button>
+    
+    <div id='firstDiv'>Here's some initial text.</div>
+    
+    <br /><br />
+    
+    <hr>
+    
+    <br />
+    
+    <button id='textAppend'>Append</button>
+    
+    <div id='secondDiv'>Javascript is ... </div>
+	    <br /><br />
+    
+    <hr>
+    
+    <br />
+    
+    <button id='textCreator'>Make some text</button>
+    
+    <div id='emptyDiv'></div>
+    
+    <br /><br />
+    <hr>
+    <br />
+    Click the circle to make it disappear
+    <div id='circle'></div>
+    
+    <br /><br />
+    <hr>
+    <br />
+    
+    <input id='myInput' type='text' value='Type here'/>
+    <button id='textInputer'>Change!</button>
+    
+    <div id='changeDiv'>Here's text.</div>
+
+    <script type="text/javascript">
+    
+    	function adding(a,b) {
+    		
+    		return(a+b);
+    	}
+    	
+    	document.getElementById('addfunc').innerHTML=adding(4535,5);
+    
+    	document.getElementById('guess').onclick=function(){
+    	
+    		var gotit=false; var guesses=1; var x;
+    		
+    		while (gotit==false) {
+    			x=Math.random();
+    	
+    			x=6*x;
+    	
+    			x=Math.floor(x);
+    			
+    			if (guesses>15){
+    			
+    				gotit=true;
+    				
+    				alert('I give up!');
+    				
+    				}
+    	
+    				if (document.getElementById('number').value==x){
+    				
+    					gotit=true;
+    					
+    					alert('I got it! It was '+x+' and it took '+guesses+' guesses.');
+    				
+    				} else {
+    				
+    					guesses++;
+    				
+    					}
+    		}
+    		    		
+    	}
+    
+    	var newText = document.getElementById('myInput').value;
+    	
+    	document.getElementById('textInputer').onclick=function() {
+    		
+    		newText = document.getElementById('myInput').value;
+    	
+    		document.getElementById('changeDiv').innerHTML=newText;
+    	}
+
+        document.getElementById('myButton').onclick=function() {
+
+             var x=Math.random();
+                x *= 6;
+                x=Math.floor(x);
+
+                if (x==document.getElementById('fingers').value) {
+                    alert('Correct')
+                } else {
+                    alert('Sorry, that\'s wrong.  I had '+x+ ' fingers.')
+                }
+        }
+		
+		document.getElementById('textAppend').onclick=function() {
+    	
+    		document.getElementById('secondDiv').innerHTML=document.getElementById('secondDiv').innerHTML + 'not too shabby ;)';
+    	}
+    	
+    	document.getElementById('textChanger').onclick=function() {
+    	
+    		document.getElementById('firstDiv').innerHTML='Text is now changed';
+    	}
+    	
+    	document.getElementById('textCreator').onclick=function() {
+    	
+    		document.getElementById('emptyDiv').innerHTML='<ul><li>Cat</li><li>Dog</li></ul>';
+    	}
+    	
+    	document.getElementById('circle').onclick=function() {
+    	
+    		document.getElementById('circle').style.display='none';
+    		
+    	}
+    	
+    	var arrayString='';
+    	
+    	var myArray=['pizza', 'chocolate', 'dogmeat'];
+    	
+    	var i=0;
+    	
+    		while (i<myArray.length) {
+    	
+    			arrayString=arrayString+myArray[i]+ ', ';
+    			
+    			i++;
+    			
+    	}
+    	
+    	document.getElementById('arrayDisplay').innerHTML=arrayString;
+    </script>
+    
+    	
+    	
+
+</body>
+</html>
